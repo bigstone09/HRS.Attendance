@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{81389139-B344-4B59-B44D-8661AD66782D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HRS.Attendance.Model</RootNamespace>
+    <AssemblyName>HRS.Attendance.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Framework, Version=2.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Framework.2.0.9.4\lib\net40\Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnnualLeaveModel.cs" />
+    <Compile Include="AttendanceDataModel.cs" />
+    <Compile Include="AttendanceTotalModel.cs" />
+    <Compile Include="BranchDefaultWorkTimeModel.cs" />
+    <Compile Include="BranchOperationPointModel.cs" />
+    <Compile Include="Common\PageRequest.cs" />
+    <Compile Include="Common\PageResult.cs" />
+    <Compile Include="Common\ResultInfo.cs" />
+    <Compile Include="Enum\AgreementCategoryState.cs" />
+    <Compile Include="Enum\AgreementStampState.cs" />
+    <Compile Include="Enum\AgreementState.cs" />
+    <Compile Include="Enum\AgreementTypeState.cs" />
+    <Compile Include="Enum\AppealState.cs" />
+    <Compile Include="Enum\ApplyState.cs" />
+    <Compile Include="Enum\AttributeExtensionTool\BaseTool.cs" />
+    <Compile Include="Enum\Attributes\EnumKeyAttribute.cs" />
+    <Compile Include="Enum\AuditingState.cs" />
+    <Compile Include="Enum\DegreeState.cs" />
+    <Compile Include="Enum\DutiesGradeState.cs" />
+    <Compile Include="Enum\DutiesLevelState.cs" />
+    <Compile Include="Enum\EducationState.cs" />
+    <Compile Include="Enum\EmployState.cs" />
+    <Compile Include="Enum\ForeignLanguagesState.cs" />
+    <Compile Include="Enum\LevelState.cs" />
+    <Compile Include="Enum\OutType.cs" />
+    <Compile Include="Enum\OverTimeType.cs" />
+    <Compile Include="Enum\PersonnelState.cs" />
+    <Compile Include="Enum\RegistrationTypeState.cs" />
+    <Compile Include="Enum\ResidencePermitState.cs" />
+    <Compile Include="Enum\SocialSecurityTypeState.cs" />
+    <Compile Include="Enum\StateColor.cs" />
+    <Compile Include="Enum\StatisticsTypeOneState.cs" />
+    <Compile Include="Enum\StatisticsTypeTwoState.cs" />
+    <Compile Include="Enum\WageGrantState.cs" />
+    <Compile Include="Enum\WageGrantUnit.cs" />
+    <Compile Include="ExchangeWorkDataModel.cs" />
+    <Compile Include="LeaveRelationModel.cs" />
+    <Compile Include="OperationLogModel.cs" />
+    <Compile Include="OutWorkPowerModel.cs" />
+    <Compile Include="OutWorkRecordModel.cs" />
+    <Compile Include="OverTimeDataModel.cs" />
+    <Compile Include="OverWorkApplyModel.cs" />
+    <Compile Include="OverWorkDetailModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestOverTimeModel.cs" />
+    <Compile Include="SettingWorkDayModel.cs" />
+    <Compile Include="ViewModel\VMUser.cs" />
+    <Compile Include="WorkFlowDetailModel.cs" />
+    <Compile Include="WorkFlowModel.cs" />
+    <Compile Include="WorkTimeModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

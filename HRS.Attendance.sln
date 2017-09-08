@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRS.Attendance.WebApi", "HRS.Attendance.WebApi\HRS.Attendance.WebApi.csproj", "{1EB06A16-D163-4028-9F89-E9C39A3E2BC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRS.Attendance.BLL", "HRS.Attendance.BLL\HRS.Attendance.BLL.csproj", "{8F8D6C8A-0519-4685-8FC6-9F00DF50C484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRS.Attendance.EF", "HRS.Attendance.EF\HRS.Attendance.EF.csproj", "{97759BE4-27C4-498D-9794-80797E58EFAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRS.Attendance.Model", "HRS.Attendance.Model\HRS.Attendance.Model.csproj", "{81389139-B344-4B59-B44D-8661AD66782D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRS.Attendance.Tool", "HRS.Attendance.Tool\HRS.Attendance.Tool.csproj", "{543FFAF6-96F1-4D30-816F-1BE868159ACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRS.Attendance.UnitTest", "HRS.Attendance.UnitTest\HRS.Attendance.UnitTest.csproj", "{09EC2BB0-4FFC-4518-95D2-F95F1BB76A96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EB06A16-D163-4028-9F89-E9C39A3E2BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EB06A16-D163-4028-9F89-E9C39A3E2BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EB06A16-D163-4028-9F89-E9C39A3E2BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EB06A16-D163-4028-9F89-E9C39A3E2BC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F8D6C8A-0519-4685-8FC6-9F00DF50C484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F8D6C8A-0519-4685-8FC6-9F00DF50C484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F8D6C8A-0519-4685-8FC6-9F00DF50C484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F8D6C8A-0519-4685-8FC6-9F00DF50C484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97759BE4-27C4-498D-9794-80797E58EFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97759BE4-27C4-498D-9794-80797E58EFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97759BE4-27C4-498D-9794-80797E58EFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97759BE4-27C4-498D-9794-80797E58EFAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81389139-B344-4B59-B44D-8661AD66782D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81389139-B344-4B59-B44D-8661AD66782D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81389139-B344-4B59-B44D-8661AD66782D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81389139-B344-4B59-B44D-8661AD66782D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543FFAF6-96F1-4D30-816F-1BE868159ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543FFAF6-96F1-4D30-816F-1BE868159ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543FFAF6-96F1-4D30-816F-1BE868159ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543FFAF6-96F1-4D30-816F-1BE868159ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09EC2BB0-4FFC-4518-95D2-F95F1BB76A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09EC2BB0-4FFC-4518-95D2-F95F1BB76A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09EC2BB0-4FFC-4518-95D2-F95F1BB76A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09EC2BB0-4FFC-4518-95D2-F95F1BB76A96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1AFF086-77F1-4914-9FE1-95291E5ADCBB}
+	EndGlobalSection
+EndGlobal

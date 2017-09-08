@@ -1,0 +1,1087 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Group.HRS.AttendanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AnnualLeave">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonnelID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AnnualLeaveDays" Type="tinyint" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttendanceData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonnelID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsFlexibleWorking" Type="bit" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="CurrentWorkTime" Type="datetime" />
+          <Property Name="CurrentEndTime" Type="datetime" />
+          <Property Name="StartImage" Type="image" />
+          <Property Name="EndImage" Type="image" />
+          <Property Name="RecordState" Type="tinyint" Nullable="false" />
+          <Property Name="AppealReason" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="RejectReason" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttendanceTotal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BranchID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PositionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonelID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonelName" Type="varchar" MaxLength="50" />
+          <Property Name="LateTypeOne" Type="tinyint" />
+          <Property Name="LateTypeTwo" Type="tinyint" />
+          <Property Name="LateTypeThree" Type="tinyint" />
+          <Property Name="AdvanceCount" Type="tinyint" />
+          <Property Name="RealWork" Type="decimal" Precision="16" Scale="1" />
+          <Property Name="Year" Type="smallint" Nullable="false" />
+          <Property Name="Month" Type="tinyint" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BranchDefaultWorkTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BranchID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WorkTimeID" Type="uniqueidentifier" />
+          <Property Name="WorkTimeDescription" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BranchOperationPoint">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BranchID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PointID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExchangeWorkData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OutWorkID" Type="uniqueidentifier" />
+          <Property Name="IsCramWork" Type="bit" />
+          <Property Name="ExchangeWorkStartTime" Type="datetime" />
+          <Property Name="ExchangeWorkEndTime" Type="datetime" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LeaveRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LeaveRelationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OutWorkRecordID" Type="uniqueidentifier" />
+          <Property Name="OverTimeDataID" Type="uniqueidentifier" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperationLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonnelID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RealName" Type="nvarchar" MaxLength="40" />
+          <Property Name="OldValue" Type="varchar" MaxLength="1000" />
+          <Property Name="NewValue" Type="varchar" MaxLength="1000" />
+          <Property Name="Type" Type="nvarchar" MaxLength="40" />
+          <Property Name="Content" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ColumnName" Type="nvarchar" MaxLength="40" />
+          <Property Name="OpertionObject" Type="uniqueidentifier" />
+          <Property Name="PrimaryKeyID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OperationType" Type="tinyint" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="OutWorkPower">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FilialeID" Type="uniqueidentifier" />
+          <Property Name="BranchID" Type="uniqueidentifier" />
+          <Property Name="PositionID" Type="uniqueidentifier" />
+          <Property Name="AuditFilialeID" Type="uniqueidentifier" />
+          <Property Name="AuditBranchID" Type="uniqueidentifier" />
+          <Property Name="AuditPositionID" Type="uniqueidentifier" />
+          <Property Name="OutType" Type="tinyint" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OutWorkRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonnelID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OutReason" Type="varchar" MaxLength="240" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="AuditState" Type="tinyint" Nullable="false" />
+          <Property Name="ApplyTime" Type="datetime" />
+          <Property Name="AuditorID" Type="uniqueidentifier" />
+          <Property Name="AuditTime" Type="datetime" />
+          <Property Name="OutType" Type="tinyint" Nullable="false" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="ApproverIndex" Type="smallint" />
+        </EntityType>
+        <EntityType Name="OverTimeData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonnelID" Type="uniqueidentifier" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="OverTimeType" Type="tinyint" />
+          <Property Name="StartImage" Type="image" />
+          <Property Name="EndImage" Type="image" />
+          <Property Name="RecordState" Type="tinyint" Nullable="false" />
+          <Property Name="AppealReason" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="RejectReason" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OverWorkApply">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonnelID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplyBranchID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplyReason" Type="varchar" MaxLength="200" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+          <Property Name="OverTimeType" Type="tinyint" Nullable="false" />
+          <Property Name="ApplyState" Type="tinyint" Nullable="false" />
+          <Property Name="AuditTime" Type="datetime" />
+          <Property Name="AuditorID" Type="uniqueidentifier" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" />
+          <Property Name="PersonnelID_Array" Type="varchar" MaxLength="1000" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="ApproverIndex" Type="smallint" />
+        </EntityType>
+        <EntityType Name="OverWorkDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OverTimeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApplyID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PersonnelID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RestOverTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RestDateTime" Type="datetime" />
+          <Property Name="OverTimeType" Type="tinyint" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SettingWorkDay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WorkYear" Type="smallint" Nullable="false" />
+          <Property Name="WorkMonth" Type="tinyint" Nullable="false" />
+          <Property Name="WorkDay_Array" Type="varchar" MaxLength="128" />
+          <Property Name="PersonnelID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="IsFlexibleWorking" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkFlow">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WorkflowType" Type="smallint" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkFlowDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WorkflowID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CurrentOwnerType" Type="tinyint" Nullable="false" />
+          <Property Name="CurrentOwner" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ApproverIndex" Type="smallint" Nullable="false" />
+          <Property Name="LeaveDays" Type="smallint" Nullable="false" />
+          <Property Name="IsNeedDocument" Type="bit" Nullable="false" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="WorkStartTime" Type="datetime" Nullable="false" />
+          <Property Name="WorkEndTime" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Identification" Type="int" Nullable="false" />
+          <Property Name="IsUse" Type="bit" Nullable="false" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="LunchStartTime" Type="datetime" />
+          <Property Name="LunchEndTime" Type="datetime" />
+          <Property Name="CreateTime" Type="datetime" Nullable="false" />
+          <Property Name="CreateUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UpdateTime" Type="datetime" />
+          <Property Name="UpdateUserID" Type="uniqueidentifier" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="GroupHRSAttendanceModelStoreContainer">
+          <EntitySet Name="AnnualLeave" EntityType="Self.AnnualLeave" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendanceData" EntityType="Self.AttendanceData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendanceTotal" EntityType="Self.AttendanceTotal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BranchDefaultWorkTime" EntityType="Self.BranchDefaultWorkTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BranchOperationPoint" EntityType="Self.BranchOperationPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExchangeWorkData" EntityType="Self.ExchangeWorkData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveRelation" EntityType="Self.LeaveRelation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperationLog" EntityType="Self.OperationLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OutWorkPower" EntityType="Self.OutWorkPower" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OutWorkRecord" EntityType="Self.OutWorkRecord" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OverTimeData" EntityType="Self.OverTimeData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OverWorkApply" EntityType="Self.OverWorkApply" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OverWorkDetail" EntityType="Self.OverWorkDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RestOverTime" EntityType="Self.RestOverTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SettingWorkDay" EntityType="Self.SettingWorkDay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkFlow" EntityType="Self.WorkFlow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkFlowDetail" EntityType="Self.WorkFlowDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkTime" EntityType="Self.WorkTime" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Group.HRS.AttendanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AnnualLeave">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PersonnelID" Type="Guid" Nullable="false" />
+          <Property Name="AnnualLeaveDays" Type="Byte" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttendanceData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PersonnelID" Type="Guid" Nullable="false" />
+          <Property Name="IsFlexibleWorking" Type="Boolean" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="CurrentWorkTime" Type="DateTime" Precision="3" />
+          <Property Name="CurrentEndTime" Type="DateTime" Precision="3" />
+          <Property Name="StartImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EndImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RecordState" Type="Byte" Nullable="false" />
+          <Property Name="AppealReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RejectReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttendanceTotal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="BranchID" Type="Guid" Nullable="false" />
+          <Property Name="PositionID" Type="Guid" Nullable="false" />
+          <Property Name="PersonelID" Type="Guid" Nullable="false" />
+          <Property Name="PersonelName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LateTypeOne" Type="Byte" />
+          <Property Name="LateTypeTwo" Type="Byte" />
+          <Property Name="LateTypeThree" Type="Byte" />
+          <Property Name="AdvanceCount" Type="Byte" />
+          <Property Name="RealWork" Type="Decimal" Precision="16" Scale="1" />
+          <Property Name="Year" Type="Int16" Nullable="false" />
+          <Property Name="Month" Type="Byte" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BranchDefaultWorkTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="BranchID" Type="Guid" Nullable="false" />
+          <Property Name="WorkTimeID" Type="Guid" />
+          <Property Name="WorkTimeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BranchOperationPoint">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="BranchID" Type="Guid" Nullable="false" />
+          <Property Name="PointID" Type="Guid" Nullable="false" />
+          <Property Name="TypeID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExchangeWorkData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="OutWorkID" Type="Guid" />
+          <Property Name="IsCramWork" Type="Boolean" />
+          <Property Name="ExchangeWorkStartTime" Type="DateTime" Precision="3" />
+          <Property Name="ExchangeWorkEndTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LeaveRelation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="LeaveRelationID" Type="Guid" Nullable="false" />
+          <Property Name="OutWorkRecordID" Type="Guid" />
+          <Property Name="OverTimeDataID" Type="Guid" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperationLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PersonnelID" Type="Guid" Nullable="false" />
+          <Property Name="RealName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OldValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="NewValue" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ColumnName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="OpertionObject" Type="Guid" />
+          <Property Name="PrimaryKeyID" Type="Guid" Nullable="false" />
+          <Property Name="OperationType" Type="Byte" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OutWorkPower">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="FilialeID" Type="Guid" />
+          <Property Name="BranchID" Type="Guid" />
+          <Property Name="PositionID" Type="Guid" />
+          <Property Name="AuditFilialeID" Type="Guid" />
+          <Property Name="AuditBranchID" Type="Guid" />
+          <Property Name="AuditPositionID" Type="Guid" />
+          <Property Name="OutType" Type="Byte" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OutWorkRecord">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PersonnelID" Type="Guid" Nullable="false" />
+          <Property Name="OutReason" Type="String" MaxLength="240" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AuditState" Type="Byte" Nullable="false" />
+          <Property Name="ApplyTime" Type="DateTime" Precision="3" />
+          <Property Name="AuditorID" Type="Guid" />
+          <Property Name="AuditTime" Type="DateTime" Precision="3" />
+          <Property Name="OutType" Type="Byte" Nullable="false" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="ApproverIndex" Type="Int16" />
+        </EntityType>
+        <EntityType Name="OverTimeData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PersonnelID" Type="Guid" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="OverTimeType" Type="Byte" />
+          <Property Name="StartImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="EndImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="RecordState" Type="Byte" Nullable="false" />
+          <Property Name="AppealReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RejectReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OverWorkApply">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="PersonnelID" Type="Guid" Nullable="false" />
+          <Property Name="ApplyBranchID" Type="Guid" Nullable="false" />
+          <Property Name="ApplyReason" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <Property Name="OverTimeType" Type="Byte" Nullable="false" />
+          <Property Name="ApplyState" Type="Byte" Nullable="false" />
+          <Property Name="AuditTime" Type="DateTime" Precision="3" />
+          <Property Name="AuditorID" Type="Guid" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PersonnelID_Array" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="ApproverIndex" Type="Int16" />
+        </EntityType>
+        <EntityType Name="OverWorkDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="OverTimeID" Type="Guid" Nullable="false" />
+          <Property Name="ApplyID" Type="Guid" Nullable="false" />
+          <Property Name="PersonnelID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RestOverTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="RestDateTime" Type="DateTime" Precision="3" />
+          <Property Name="OverTimeType" Type="Byte" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SettingWorkDay">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="WorkYear" Type="Int16" Nullable="false" />
+          <Property Name="WorkMonth" Type="Byte" Nullable="false" />
+          <Property Name="WorkDay_Array" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="PersonnelID" Type="Guid" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="IsFlexibleWorking" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkFlow">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="WorkflowType" Type="Int16" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkFlowDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="WorkflowID" Type="Guid" Nullable="false" />
+          <Property Name="CurrentOwnerType" Type="Byte" Nullable="false" />
+          <Property Name="CurrentOwner" Type="Guid" Nullable="false" />
+          <Property Name="ApproverIndex" Type="Int16" Nullable="false" />
+          <Property Name="LeaveDays" Type="Int16" Nullable="false" />
+          <Property Name="IsNeedDocument" Type="Boolean" Nullable="false" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkTime">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="WorkStartTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WorkEndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Identification" Type="Int32" Nullable="false" />
+          <Property Name="IsUse" Type="Boolean" Nullable="false" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <Property Name="LunchStartTime" Type="DateTime" Precision="3" />
+          <Property Name="LunchEndTime" Type="DateTime" Precision="3" />
+          <Property Name="CreateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUserID" Type="Guid" Nullable="false" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateUserID" Type="Guid" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AnnualLeaves" EntityType="Self.AnnualLeave" />
+          <EntitySet Name="AttendanceDatas" EntityType="Self.AttendanceData" />
+          <EntitySet Name="AttendanceTotals" EntityType="Self.AttendanceTotal" />
+          <EntitySet Name="BranchDefaultWorkTimes" EntityType="Self.BranchDefaultWorkTime" />
+          <EntitySet Name="BranchOperationPoints" EntityType="Self.BranchOperationPoint" />
+          <EntitySet Name="ExchangeWorkDatas" EntityType="Self.ExchangeWorkData" />
+          <EntitySet Name="LeaveRelations" EntityType="Self.LeaveRelation" />
+          <EntitySet Name="OperationLogs" EntityType="Self.OperationLog" />
+          <EntitySet Name="OutWorkPowers" EntityType="Self.OutWorkPower" />
+          <EntitySet Name="OutWorkRecords" EntityType="Self.OutWorkRecord" />
+          <EntitySet Name="OverTimeDatas" EntityType="Self.OverTimeData" />
+          <EntitySet Name="OverWorkApplies" EntityType="Self.OverWorkApply" />
+          <EntitySet Name="OverWorkDetails" EntityType="Self.OverWorkDetail" />
+          <EntitySet Name="RestOverTimes" EntityType="Self.RestOverTime" />
+          <EntitySet Name="SettingWorkDays" EntityType="Self.SettingWorkDay" />
+          <EntitySet Name="WorkFlows" EntityType="Self.WorkFlow" />
+          <EntitySet Name="WorkFlowDetails" EntityType="Self.WorkFlowDetail" />
+          <EntitySet Name="WorkTimes" EntityType="Self.WorkTime" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GroupHRSAttendanceModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AnnualLeaves">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.AnnualLeave">
+              <MappingFragment StoreEntitySet="AnnualLeave">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="AnnualLeaveDays" ColumnName="AnnualLeaveDays" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceDatas">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.AttendanceData">
+              <MappingFragment StoreEntitySet="AttendanceData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="IsFlexibleWorking" ColumnName="IsFlexibleWorking" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="CurrentWorkTime" ColumnName="CurrentWorkTime" />
+                <ScalarProperty Name="CurrentEndTime" ColumnName="CurrentEndTime" />
+                <ScalarProperty Name="StartImage" ColumnName="StartImage" />
+                <ScalarProperty Name="EndImage" ColumnName="EndImage" />
+                <ScalarProperty Name="RecordState" ColumnName="RecordState" />
+                <ScalarProperty Name="AppealReason" ColumnName="AppealReason" />
+                <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceTotals">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.AttendanceTotal">
+              <MappingFragment StoreEntitySet="AttendanceTotal">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+                <ScalarProperty Name="PersonelName" ColumnName="PersonelName" />
+                <ScalarProperty Name="LateTypeOne" ColumnName="LateTypeOne" />
+                <ScalarProperty Name="LateTypeTwo" ColumnName="LateTypeTwo" />
+                <ScalarProperty Name="LateTypeThree" ColumnName="LateTypeThree" />
+                <ScalarProperty Name="AdvanceCount" ColumnName="AdvanceCount" />
+                <ScalarProperty Name="RealWork" ColumnName="RealWork" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchDefaultWorkTimes">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.BranchDefaultWorkTime">
+              <MappingFragment StoreEntitySet="BranchDefaultWorkTime">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="WorkTimeID" ColumnName="WorkTimeID" />
+                <ScalarProperty Name="WorkTimeDescription" ColumnName="WorkTimeDescription" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchOperationPoints">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.BranchOperationPoint">
+              <MappingFragment StoreEntitySet="BranchOperationPoint">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExchangeWorkDatas">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.ExchangeWorkData">
+              <MappingFragment StoreEntitySet="ExchangeWorkData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OutWorkID" ColumnName="OutWorkID" />
+                <ScalarProperty Name="IsCramWork" ColumnName="IsCramWork" />
+                <ScalarProperty Name="ExchangeWorkStartTime" ColumnName="ExchangeWorkStartTime" />
+                <ScalarProperty Name="ExchangeWorkEndTime" ColumnName="ExchangeWorkEndTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveRelations">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.LeaveRelation">
+              <MappingFragment StoreEntitySet="LeaveRelation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LeaveRelationID" ColumnName="LeaveRelationID" />
+                <ScalarProperty Name="OutWorkRecordID" ColumnName="OutWorkRecordID" />
+                <ScalarProperty Name="OverTimeDataID" ColumnName="OverTimeDataID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperationLogs">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.OperationLog">
+              <MappingFragment StoreEntitySet="OperationLog">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="RealName" ColumnName="RealName" />
+                <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+                <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+                <ScalarProperty Name="OpertionObject" ColumnName="OpertionObject" />
+                <ScalarProperty Name="PrimaryKeyID" ColumnName="PrimaryKeyID" />
+                <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutWorkPowers">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.OutWorkPower">
+              <MappingFragment StoreEntitySet="OutWorkPower">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FilialeID" ColumnName="FilialeID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="AuditFilialeID" ColumnName="AuditFilialeID" />
+                <ScalarProperty Name="AuditBranchID" ColumnName="AuditBranchID" />
+                <ScalarProperty Name="AuditPositionID" ColumnName="AuditPositionID" />
+                <ScalarProperty Name="OutType" ColumnName="OutType" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutWorkRecords">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.OutWorkRecord">
+              <MappingFragment StoreEntitySet="OutWorkRecord">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="OutReason" ColumnName="OutReason" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="AuditState" ColumnName="AuditState" />
+                <ScalarProperty Name="ApplyTime" ColumnName="ApplyTime" />
+                <ScalarProperty Name="AuditorID" ColumnName="AuditorID" />
+                <ScalarProperty Name="AuditTime" ColumnName="AuditTime" />
+                <ScalarProperty Name="OutType" ColumnName="OutType" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ApproverIndex" ColumnName="ApproverIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OverTimeDatas">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.OverTimeData">
+              <MappingFragment StoreEntitySet="OverTimeData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="OverTimeType" ColumnName="OverTimeType" />
+                <ScalarProperty Name="StartImage" ColumnName="StartImage" />
+                <ScalarProperty Name="EndImage" ColumnName="EndImage" />
+                <ScalarProperty Name="RecordState" ColumnName="RecordState" />
+                <ScalarProperty Name="AppealReason" ColumnName="AppealReason" />
+                <ScalarProperty Name="RejectReason" ColumnName="RejectReason" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OverWorkApplies">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.OverWorkApply">
+              <MappingFragment StoreEntitySet="OverWorkApply">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="ApplyBranchID" ColumnName="ApplyBranchID" />
+                <ScalarProperty Name="ApplyReason" ColumnName="ApplyReason" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="OverTimeType" ColumnName="OverTimeType" />
+                <ScalarProperty Name="ApplyState" ColumnName="ApplyState" />
+                <ScalarProperty Name="AuditTime" ColumnName="AuditTime" />
+                <ScalarProperty Name="AuditorID" ColumnName="AuditorID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="PersonnelID_Array" ColumnName="PersonnelID_Array" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ApproverIndex" ColumnName="ApproverIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OverWorkDetails">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.OverWorkDetail">
+              <MappingFragment StoreEntitySet="OverWorkDetail">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OverTimeID" ColumnName="OverTimeID" />
+                <ScalarProperty Name="ApplyID" ColumnName="ApplyID" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RestOverTimes">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.RestOverTime">
+              <MappingFragment StoreEntitySet="RestOverTime">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RestDateTime" ColumnName="RestDateTime" />
+                <ScalarProperty Name="OverTimeType" ColumnName="OverTimeType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SettingWorkDays">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.SettingWorkDay">
+              <MappingFragment StoreEntitySet="SettingWorkDay">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WorkYear" ColumnName="WorkYear" />
+                <ScalarProperty Name="WorkMonth" ColumnName="WorkMonth" />
+                <ScalarProperty Name="WorkDay_Array" ColumnName="WorkDay_Array" />
+                <ScalarProperty Name="PersonnelID" ColumnName="PersonnelID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsFlexibleWorking" ColumnName="IsFlexibleWorking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkFlows">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.WorkFlow">
+              <MappingFragment StoreEntitySet="WorkFlow">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WorkflowType" ColumnName="WorkflowType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkFlowDetails">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.WorkFlowDetail">
+              <MappingFragment StoreEntitySet="WorkFlowDetail">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WorkflowID" ColumnName="WorkflowID" />
+                <ScalarProperty Name="CurrentOwnerType" ColumnName="CurrentOwnerType" />
+                <ScalarProperty Name="CurrentOwner" ColumnName="CurrentOwner" />
+                <ScalarProperty Name="ApproverIndex" ColumnName="ApproverIndex" />
+                <ScalarProperty Name="LeaveDays" ColumnName="LeaveDays" />
+                <ScalarProperty Name="IsNeedDocument" ColumnName="IsNeedDocument" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkTimes">
+            <EntityTypeMapping TypeName="Group.HRS.AttendanceModel.WorkTime">
+              <MappingFragment StoreEntitySet="WorkTime">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WorkStartTime" ColumnName="WorkStartTime" />
+                <ScalarProperty Name="WorkEndTime" ColumnName="WorkEndTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Identification" ColumnName="Identification" />
+                <ScalarProperty Name="IsUse" ColumnName="IsUse" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="LunchStartTime" ColumnName="LunchStartTime" />
+                <ScalarProperty Name="LunchEndTime" ColumnName="LunchEndTime" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="CreateUserID" ColumnName="CreateUserID" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
